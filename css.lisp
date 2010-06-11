@@ -99,7 +99,7 @@ In lisp this is (:blah 1 2 3)."
         (*print-pprint-dispatch* (css-table)))
     (funcall thunk)))
 
-(defmacro css ((&key (stream *standard-output*)) &body forms)
+(defmacro css ((&key (stream '*standard-output*)) &body forms)
   "Print to *standard-output* css stylesheets."
   `(call-with-css-pprint-table
     (lambda () (mapc (lambda (form) (print form ,stream)) ',forms))))
